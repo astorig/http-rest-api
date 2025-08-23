@@ -1,0 +1,16 @@
+.env
+.idea/
+/bin/
+
+*.log
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+*.tmp
+
+
