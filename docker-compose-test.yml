@@ -1,0 +1,27 @@
+version: '3.8'
+
+networks:
+  http-rest-api-test-network:
+    name: http-rest-api-test-network
+    driver: ${NETWORKS_DRIVER:-bridge}
+
+volumes:
+  postgres-data-test: {}
+
+services:
+
+  database:
+    image: postgres:16
+    platform: linux/amd64
+    restart: unless-stopped
+    environment:
+      - TZ=${PHP_DATE_TIMEZONE:-America/Argentina/Cordoba}
+      - POSTGRES_DB=${DATABASE_NAME:-restapi_test}
+      - POSTGRES_USER=${DATABASE_USER:-restapi}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD:-restapi}
+    volumes:
+      - postgres-data-test:/var/lib/postgresql/data
+    ports:
+      - "127.0.0.1:63343:5432"
+    networks:
+      - http-rest-api-test-network
