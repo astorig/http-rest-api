@@ -1,5 +1,3 @@
-version: '3.8'
-
 networks:
   http-rest-api-network:
     name: http-rest-api-network

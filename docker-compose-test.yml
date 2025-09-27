@@ -1,5 +1,3 @@
-version: '3.8'
-
 networks:
   http-rest-api-test-network:
     name: http-rest-api-test-network
@@ -8,6 +6,7 @@ networks:
 services:
 
   database:
+    container_name: http-rest-api-test-database
     image: postgres:16
     platform: linux/amd64
     restart: unless-stopped
